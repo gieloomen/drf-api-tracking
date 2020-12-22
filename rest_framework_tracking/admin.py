@@ -24,8 +24,8 @@ class APIRequestLogAdmin(admin.ModelAdmin):
         readonly_fields = ('user', 'username_persistent', 'requested_at',
                            'response_ms', 'path', 'view', 'view_method',
                            'remote_addr', 'host', 'method',
-                           # 'query_params',
-                           'data', 'response', 'errors', 'status_code')
+                           # 'query_params', 'response', 'data', 
+                           'errors', 'status_code')
 
     def changelist_view(self, request, extra_context=None):
         # Aggregate api logs per day

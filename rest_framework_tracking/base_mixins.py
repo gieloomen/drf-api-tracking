@@ -80,18 +80,18 @@ class BaseLoggingMixin(object):
                     "path": self._get_path(request),
                     "host": request.get_host(),
                     "method": request.method,
-                    "query_params": self._clean_data(request.query_params.dict()),
+                    # "query_params": self._clean_data(request.query_params.dict()),
                     "user": self._get_user(request),
                     "username_persistent": self._get_user(request).get_username()
                     if self._get_user(request)
                     else "Anonymous",
                     "response_ms": self._get_response_ms(),
-                    "response": self._clean_data(rendered_content),
+                    # "response": self._clean_data(rendered_content),
                     "status_code": response.status_code,
                 }
             )
-            if self._clean_data(request.query_params.dict()) == {}:
-                self.log.update({"query_params": self.log["data"]})
+            # if self._clean_data(request.query_params.dict()) == {}:
+            #     self.log.update({"query_params": self.log["data"]})
             try:
                 self.handle_log()
             except Exception:

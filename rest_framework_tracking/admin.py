@@ -13,7 +13,8 @@ class APIRequestLogAdmin(admin.ModelAdmin):
     list_display = ('id', 'requested_at', 'response_ms', 'status_code',
                     'user', 'view_method',
                     'path', 'remote_addr', 'host',
-                    'query_params')
+                    # 'query_params',
+                    )
     ordering = ("-requested_at",)
     list_filter = ('view_method', 'status_code')
     search_fields = ('path', 'user__email',)
@@ -22,7 +23,8 @@ class APIRequestLogAdmin(admin.ModelAdmin):
     if getattr(settings, 'DRF_TRACKING_ADMIN_LOG_READONLY', False):
         readonly_fields = ('user', 'username_persistent', 'requested_at',
                            'response_ms', 'path', 'view', 'view_method',
-                           'remote_addr', 'host', 'method', 'query_params',
+                           'remote_addr', 'host', 'method',
+                           # 'query_params',
                            'data', 'response', 'errors', 'status_code')
 
     def changelist_view(self, request, extra_context=None):
@@ -38,7 +40,7 @@ class APIRequestLogAdmin(admin.ModelAdmin):
 
         # Call the superclass changelist_view to render the page
         return super().changelist_view(request, extra_context=extra_context)
-    
+
     def get_urls(self):
         urls = super().get_urls()
         extra_urls = [

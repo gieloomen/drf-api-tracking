@@ -74,7 +74,7 @@ class BaseLoggingMixin(object):
 
             self.log.update(
                 {
-                    "remote_addr": self._get_ip_address(request),
+                    # "remote_addr": self._get_ip_address(request),
                     "view": self._get_view_name(request),
                     "view_method": self._get_view_method(request),
                     "path": self._get_path(request),

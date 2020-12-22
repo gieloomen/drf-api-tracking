@@ -36,7 +36,7 @@ class BaseAPIRequestLog(models.Model):
         blank=True,
         db_index=True,
     )
-    remote_addr = models.GenericIPAddressField()
+    # remote_addr = models.GenericIPAddressField()
     host = models.URLField()
     method = models.CharField(max_length=10)
     # query_params = models.TextField(null=True, blank=True)

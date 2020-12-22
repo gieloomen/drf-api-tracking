@@ -12,8 +12,8 @@ class APIRequestLogAdmin(admin.ModelAdmin):
     date_hierarchy = 'requested_at'
     list_display = ('id', 'requested_at', 'response_ms', 'status_code',
                     'user', 'view_method',
-                    'path', 'remote_addr', 'host',
-                    # 'query_params',
+                    'path', 'host',
+                    # 'query_params', 'remote_addr',
                     )
     ordering = ("-requested_at",)
     list_filter = ('view_method', 'status_code')
@@ -23,8 +23,8 @@ class APIRequestLogAdmin(admin.ModelAdmin):
     if getattr(settings, 'DRF_TRACKING_ADMIN_LOG_READONLY', False):
         readonly_fields = ('user', 'username_persistent', 'requested_at',
                            'response_ms', 'path', 'view', 'view_method',
-                           'remote_addr', 'host', 'method',
-                           # 'query_params', 'response', 'data', 
+                           'host', 'method',
+                           # 'query_params', 'response', 'data', 'remote_addr',
                            'errors', 'status_code')
 
     def changelist_view(self, request, extra_context=None):

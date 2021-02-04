@@ -27,7 +27,7 @@ class BaseLoggingMixin(object):
 
     def initial(self, request, *args, **kwargs):
         self.log = {"requested_at": now()}
-        self.log["data"] = self._clean_data(request.body)
+        # self.log["data"] = self._clean_data(request.body)
 
         super(BaseLoggingMixin, self).initial(request, *args, **kwargs)
 
@@ -39,7 +39,7 @@ class BaseLoggingMixin(object):
             data = self.request.data.dict()
         except AttributeError:
             data = self.request.data
-        self.log["data"] = self._clean_data(data)
+        # self.log["data"] = self._clean_data(data)
 
     def handle_exception(self, exc):
         response = super(BaseLoggingMixin, self).handle_exception(exc)

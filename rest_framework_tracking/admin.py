@@ -13,7 +13,7 @@ class APIRequestLogAdmin(admin.ModelAdmin):
     list_display = ('id', 'requested_at', 'response_ms', 'status_code',
                     'user', 'view_method',
                     'path', 'host',
-                    'data',
+                    # 'data',
                     # 'query_params', 'remote_addr',
                     )
     ordering = ("-requested_at",)

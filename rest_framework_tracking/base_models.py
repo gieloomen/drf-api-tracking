@@ -40,7 +40,7 @@ class BaseAPIRequestLog(models.Model):
     host = models.URLField()
     method = models.CharField(max_length=10)
     # query_params = models.TextField(null=True, blank=True)
-    data = models.TextField(null=True, blank=True)
+    # data = models.TextField(null=True, blank=True)
     # response = models.TextField(null=True, blank=True)
     errors = models.TextField(null=True, blank=True)
     status_code = models.PositiveIntegerField(null=True, blank=True, db_index=True)

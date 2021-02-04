@@ -23,7 +23,7 @@ class APIRequestLogAdmin(admin.ModelAdmin):
     if getattr(settings, 'DRF_TRACKING_ADMIN_LOG_READONLY', False):
         readonly_fields = ('user', 'username_persistent', 'requested_at',
                            'response_ms', 'path', 'view', 'view_method',
-                           'host', 'method',
+                           'host', 'method', 'data',
                            # 'query_params', 'response', 'data', 'remote_addr',
                            'errors', 'status_code')
 

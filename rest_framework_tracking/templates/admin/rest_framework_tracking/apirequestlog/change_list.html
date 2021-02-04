@@ -53,8 +53,8 @@
                     yAxes: [{
                         ticks: {
                             beginAtZero: true,
-                            stepSize: 1,
-                            suggestedMax: 5,
+                            stepSize: 50,
+                            suggestedMax: 250,
                         },
                     }, ],
                 },
@@ -71,7 +71,7 @@
                     resp.forEach((d) => {
                         d.x = new Date(d.date);
                     });
-                
+
                     chart.data.datasets[0].data = resp;
                     chart.update();
                 })
